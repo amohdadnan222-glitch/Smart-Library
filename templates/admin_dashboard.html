@@ -1,0 +1,1091 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="official-admin-dashboard">
+
+    <!-- =====================================================
+         ADMIN HERO
+         ===================================================== -->
+
+    <section class="official-admin-hero">
+
+        <div class="official-admin-hero-overlay"></div>
+
+        <div class="official-admin-hero-content">
+
+            <div class="official-admin-badge">
+
+                <i class="bi bi-shield-check"></i>
+
+                Administrator Portal
+
+            </div>
+
+            <h1>
+                Library Administration
+            </h1>
+
+            <p>
+                Monitor your library, manage users, track book circulation,
+                and access reports from one centralized dashboard.
+            </p>
+
+            <div class="official-admin-hero-buttons">
+
+                <a
+                    href="/add_book"
+                    class="official-admin-primary-btn">
+
+                    <i class="bi bi-plus-circle"></i>
+
+                    Add New Book
+
+                </a>
+
+                <a
+                    href="/admin_reports"
+                    class="official-admin-secondary-btn">
+
+                    <i class="bi bi-bar-chart"></i>
+
+                    View Reports
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="official-admin-hero-icon">
+
+            <i class="bi bi-speedometer2"></i>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         OVERVIEW
+         ===================================================== -->
+
+    <section class="official-admin-overview">
+
+        <div class="official-admin-section-heading">
+
+            <div>
+
+                <span>LIBRARY OVERVIEW</span>
+
+                <h2>
+                    Current System Status
+                </h2>
+
+            </div>
+
+            <div class="official-admin-status">
+
+                <span class="official-status-dot"></span>
+
+                System Active
+
+            </div>
+
+        </div>
+
+
+        <!-- Statistics -->
+
+        <div class="official-admin-stats-grid">
+
+
+            <!-- Total Books -->
+
+            <div class="official-admin-stat-card blue-admin-stat">
+
+                <div class="official-admin-stat-icon">
+
+                    <i class="bi bi-book"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Total Books</span>
+
+                    <strong>
+                        {{ total_books }}
+                    </strong>
+
+                    <small>
+                        Books in library
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Students -->
+
+            <div class="official-admin-stat-card green-admin-stat">
+
+                <div class="official-admin-stat-icon">
+
+                    <i class="bi bi-mortarboard"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Students</span>
+
+                    <strong>
+                        {{ total_students }}
+                    </strong>
+
+                    <small>
+                        Registered users
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Teachers -->
+
+            <div class="official-admin-stat-card cyan-admin-stat">
+
+                <div class="official-admin-stat-icon">
+
+                    <i class="bi bi-person-workspace"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Teachers</span>
+
+                    <strong>
+                        {{ total_teachers }}
+                    </strong>
+
+                    <small>
+                        Registered teachers
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Issued -->
+
+            <div class="official-admin-stat-card dark-admin-stat">
+
+                <div class="official-admin-stat-icon">
+
+                    <i class="bi bi-journal-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Issued Books</span>
+
+                    <strong>
+                        {{ total_issued }}
+                    </strong>
+
+                    <small>
+                        Currently issued
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Returned -->
+
+            <div class="official-admin-stat-card purple-admin-stat">
+
+                <div class="official-admin-stat-icon">
+
+                    <i class="bi bi-arrow-return-left"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Returned</span>
+
+                    <strong>
+                        {{ total_returned }}
+                    </strong>
+
+                    <small>
+                        Successfully returned
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Overdue -->
+
+            <div class="official-admin-stat-card red-admin-stat">
+
+                <div class="official-admin-stat-icon">
+
+                    <i class="bi bi-exclamation-triangle"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Overdue</span>
+
+                    <strong>
+                        {{ total_overdue }}
+                    </strong>
+
+                    <small>
+                        Need attention
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Fine -->
+
+            <div class="official-admin-stat-card gold-admin-stat">
+
+                <div class="official-admin-stat-icon">
+
+                    <i class="bi bi-cash-coin"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Total Fine</span>
+
+                    <strong>
+                        ₹{{ total_fine }}
+                    </strong>
+
+                    <small>
+                        Accumulated fines
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Available -->
+
+            <div class="official-admin-stat-card teal-admin-stat">
+
+                <div class="official-admin-stat-icon">
+
+                    <i class="bi bi-check-circle"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Available</span>
+
+                    <strong>
+                        {{ total_books-total_issued }}
+                    </strong>
+
+                    <small>
+                        Books currently available
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         QUICK ACTIONS
+         ===================================================== -->
+
+    <section class="official-admin-section">
+
+        <div class="official-admin-section-heading">
+
+            <div>
+
+                <span>ADMINISTRATION</span>
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="official-admin-actions-grid">
+
+
+            <a
+                href="/add_book"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon blue-action-icon">
+
+                    <i class="bi bi-plus-circle"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Add Book
+                    </h3>
+
+                    <p>
+                        Add a new book to the collection.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right action-arrow"></i>
+
+            </a>
+
+
+            <a
+                href="/view_books"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon green-action-icon">
+
+                    <i class="bi bi-book"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        View Books
+                    </h3>
+
+                    <p>
+                        Manage the complete book collection.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right action-arrow"></i>
+
+            </a>
+
+
+            <a
+                href="/issued_books"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon orange-action-icon">
+
+                    <i class="bi bi-journal-check"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Issued Books
+                    </h3>
+
+                    <p>
+                        Track active and returned book issues.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right action-arrow"></i>
+
+            </a>
+
+
+            <a
+                href="/manage_students"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon cyan-action-icon">
+
+                    <i class="bi bi-people-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Manage Students
+                    </h3>
+
+                    <p>
+                        View and manage student accounts.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right action-arrow"></i>
+
+            </a>
+
+
+            <a
+                href="/manage_teachers"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon purple-action-icon">
+
+                    <i class="bi bi-person-workspace"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Manage Teachers
+                    </h3>
+
+                    <p>
+                        View and manage teacher accounts.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right action-arrow"></i>
+
+            </a>
+
+
+            <a
+                href="/admin_reports"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon red-action-icon">
+
+                    <i class="bi bi-bar-chart"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Reports
+                    </h3>
+
+                    <p>
+                        View library reports and analytics.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right action-arrow"></i>
+
+            </a>
+
+
+            <a
+                href="/download_issue_report"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon pdf-action-icon">
+
+                    <i class="bi bi-file-earmark-pdf"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Issue Report PDF
+                    </h3>
+
+                    <p>
+                        Download the issue report as PDF.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-download action-arrow"></i>
+
+            </a>
+
+
+            <a
+                href="/export_books_excel"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon excel-action-icon">
+
+                    <i class="bi bi-file-earmark-excel"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Books Excel
+                    </h3>
+
+                    <p>
+                        Export book records to Excel.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-download action-arrow"></i>
+
+            </a>
+
+
+            <a
+                href="/export_students_excel"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon excel-action-icon">
+
+                    <i class="bi bi-file-earmark-excel"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Students Excel
+                    </h3>
+
+                    <p>
+                        Export student records to Excel.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-download action-arrow"></i>
+
+            </a>
+
+
+            <a
+                href="/export_teachers_excel"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon excel-action-icon">
+
+                    <i class="bi bi-file-earmark-excel"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Teachers Excel
+                    </h3>
+
+                    <p>
+                        Export teacher records to Excel.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-download action-arrow"></i>
+
+            </a>
+
+
+            <a
+                href="/logout"
+                class="official-admin-action-card">
+
+                <div class="official-admin-action-icon logout-action-icon">
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Logout
+                    </h3>
+
+                    <p>
+                        Securely sign out from the administrator account.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right action-arrow"></i>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ANALYTICS
+         ===================================================== -->
+
+    <section class="official-admin-section">
+
+        <div class="official-admin-section-heading">
+
+            <div>
+
+                <span>LIBRARY ANALYTICS</span>
+
+                <h2>
+                    Activity & Performance
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="official-admin-chart-grid">
+
+
+            <!-- Category Chart -->
+
+            <div class="official-admin-chart-card">
+
+                <div class="official-admin-chart-header blue-chart-header">
+
+                    <div>
+
+                        <span>
+                            COLLECTION
+                        </span>
+
+                        <h3>
+                            Books by Category
+                        </h3>
+
+                    </div>
+
+                    <i class="bi bi-pie-chart-fill"></i>
+
+                </div>
+
+                <div class="official-admin-chart-body">
+
+                    <canvas
+                        id="categoryChart"
+                        height="280">
+                    </canvas>
+
+                </div>
+
+            </div>
+
+
+            <!-- Status Chart -->
+
+            <div class="official-admin-chart-card">
+
+                <div class="official-admin-chart-header green-chart-header">
+
+                    <div>
+
+                        <span>
+                            CIRCULATION
+                        </span>
+
+                        <h3>
+                            Issued vs Returned
+                        </h3>
+
+                    </div>
+
+                    <i class="bi bi-bar-chart-fill"></i>
+
+                </div>
+
+                <div class="official-admin-chart-body">
+
+                    <canvas
+                        id="statusChart"
+                        height="280">
+                    </canvas>
+
+                </div>
+
+            </div>
+
+
+            <!-- Monthly Chart -->
+
+            <div class="official-admin-chart-card wide-admin-chart">
+
+                <div class="official-admin-chart-header dark-chart-header">
+
+                    <div>
+
+                        <span>
+                            MONTHLY ACTIVITY
+                        </span>
+
+                        <h3>
+                            Monthly Book Issue Report
+                        </h3>
+
+                    </div>
+
+                    <i class="bi bi-graph-up"></i>
+
+                </div>
+
+                <div class="official-admin-chart-body monthly-chart-body">
+
+                    <canvas
+                        id="monthlyChart"
+                        height="100">
+                    </canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SYSTEM SUMMARY
+         ===================================================== -->
+
+    <section class="official-admin-section">
+
+        <div class="official-admin-section-heading">
+
+            <div>
+
+                <span>SYSTEM SUMMARY</span>
+
+                <h2>
+                    At a Glance
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="official-admin-summary-grid">
+
+
+            <div class="official-admin-summary-card">
+
+                <i class="bi bi-book"></i>
+
+                <div>
+
+                    <span>Total Books</span>
+
+                    <strong>
+                        {{ total_books }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="official-admin-summary-card">
+
+                <i class="bi bi-mortarboard"></i>
+
+                <div>
+
+                    <span>Registered Students</span>
+
+                    <strong>
+                        {{ total_students }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="official-admin-summary-card">
+
+                <i class="bi bi-person-workspace"></i>
+
+                <div>
+
+                    <span>Registered Teachers</span>
+
+                    <strong>
+                        {{ total_teachers }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="official-admin-summary-card">
+
+                <i class="bi bi-journal-check"></i>
+
+                <div>
+
+                    <span>Currently Issued</span>
+
+                    <strong>
+                        {{ total_issued }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="official-admin-summary-card">
+
+                <i class="bi bi-check-circle"></i>
+
+                <div>
+
+                    <span>Returned Books</span>
+
+                    <strong>
+                        {{ total_returned }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="official-admin-summary-card fine-summary">
+
+                <i class="bi bi-cash-coin"></i>
+
+                <div>
+
+                    <span>Total Fine</span>
+
+                    <strong>
+                        ₹{{ total_fine }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Hidden chart data -->
+
+    <div
+        id="chartData"
+        data-categories='{{ categories|tojson }}'
+        data-categorycounts='{{ category_counts|tojson }}'
+        data-months='{{ months|tojson }}'
+        data-monthlycounts='{{ monthly_count|tojson }}'
+        data-issued="{{ total_issued }}"
+        data-returned="{{ total_returned }}">
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+
+const chartData = document.getElementById("chartData");
+
+const categories =
+    JSON.parse(chartData.dataset.categories);
+
+const categoryCounts =
+    JSON.parse(chartData.dataset.categorycounts);
+
+const months =
+    JSON.parse(chartData.dataset.months);
+
+const monthlyCounts =
+    JSON.parse(chartData.dataset.monthlycounts);
+
+const issued =
+    parseInt(chartData.dataset.issued) || 0;
+
+const returned =
+    parseInt(chartData.dataset.returned) || 0;
+
+
+/* =====================================================
+   Category Pie Chart
+   ===================================================== */
+
+new Chart(
+    document.getElementById("categoryChart"),
+    {
+        type: "pie",
+
+        data: {
+
+            labels: categories,
+
+            datasets: [
+                {
+                    label: "Books",
+                    data: categoryCounts
+                }
+            ]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            plugins: {
+
+                legend: {
+                    position: "bottom"
+                }
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   Status Chart
+   ===================================================== */
+
+new Chart(
+    document.getElementById("statusChart"),
+    {
+        type: "bar",
+
+        data: {
+
+            labels: [
+                "Issued",
+                "Returned"
+            ],
+
+            datasets: [
+                {
+                    label: "Books",
+                    data: [
+                        issued,
+                        returned
+                    ]
+                }
+            ]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            scales: {
+
+                y: {
+                    beginAtZero: true
+                }
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   Monthly Chart
+   ===================================================== */
+
+new Chart(
+    document.getElementById("monthlyChart"),
+    {
+        type: "line",
+
+        data: {
+
+            labels: months,
+
+            datasets: [
+                {
+                    label: "Monthly Issues",
+
+                    data: monthlyCounts,
+
+                    fill: false,
+
+                    tension: 0.4,
+
+                    borderWidth: 3
+                }
+            ]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            scales: {
+
+                y: {
+                    beginAtZero: true
+                }
+
+            }
+
+        }
+
+    }
+);
+
+</script>
+
+{% endblock %}

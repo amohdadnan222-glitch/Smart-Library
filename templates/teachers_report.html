@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 admin-teachers-report-page">
+
+    <!-- Header -->
+
+    <div class="admin-report-page-header teachers-report-header">
+
+        <div class="admin-report-page-icon">
+
+            <i class="bi bi-person-workspace"></i>
+
+        </div>
+
+        <div>
+
+            <h2>Teachers Report</h2>
+
+            <p>
+                Overview of registered teachers in the library system.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Report Card -->
+
+    <div class="admin-report-page-card">
+
+        <div class="report-table-responsive">
+
+            <table class="table admin-report-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                {% for teacher in teachers %}
+
+                    <tr>
+
+                        <td class="report-id">
+                            {{ teacher[0] }}
+                        </td>
+
+                        <td class="report-person-name teacher-report-name">
+
+                            <i class="bi bi-person-workspace"></i>
+
+                            {{ teacher[1] }}
+
+                        </td>
+
+                        <td class="report-email">
+
+                            <i class="bi bi-envelope"></i>
+
+                            {{ teacher[2] }}
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="admin-report-footer">
+
+            <a
+                href="/admin_reports"
+                class="admin-report-back">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Reports
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="official-dashboard">
+
+    <!-- Dashboard Hero -->
+
+    <section class="official-dashboard-hero teacher-dashboard-hero">
+
+        <div class="official-dashboard-hero-content">
+
+            <div class="official-dashboard-badge">
+
+                <i class="bi bi-person-workspace"></i>
+
+                Teacher Portal
+
+            </div>
+
+            <h1>
+                Welcome, Teacher
+            </h1>
+
+            <p>
+                Manage library books, issue activities,
+                your account and teaching resources.
+            </p>
+
+        </div>
+
+        <div class="official-dashboard-hero-icon">
+
+            <i class="bi bi-person-workspace"></i>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section Heading -->
+
+    <div class="official-dashboard-heading">
+
+        <div>
+
+            <span>LIBRARY SERVICES</span>
+
+            <h2>
+                Teacher Dashboard
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- Dashboard Cards -->
+
+    <div class="official-dashboard-grid">
+
+
+        <!-- View Books -->
+
+        <a
+            href="/teacher_books"
+            class="official-dashboard-card">
+
+            <div class="official-dashboard-card-image books-dashboard-image">
+
+                <div class="official-dashboard-card-icon">
+
+                    <i class="bi bi-book"></i>
+
+                </div>
+
+            </div>
+
+            <div class="official-dashboard-card-body">
+
+                <h3>
+                    View Books
+                </h3>
+
+                <p>
+                    Browse the complete collection of library books.
+                </p>
+
+                <span class="official-dashboard-card-link">
+
+                    Browse Books
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- Search Books -->
+
+        <a
+            href="/teacher_search_books"
+            class="official-dashboard-card">
+
+            <div class="official-dashboard-card-image search-dashboard-image">
+
+                <div class="official-dashboard-card-icon">
+
+                    <i class="bi bi-search"></i>
+
+                </div>
+
+            </div>
+
+            <div class="official-dashboard-card-body">
+
+                <h3>
+                    Search Books
+                </h3>
+
+                <p>
+                    Search books by title, author or category.
+                </p>
+
+                <span class="official-dashboard-card-link">
+
+                    Search Library
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- My Books -->
+
+        <a
+            href="/teacher_my_books"
+            class="official-dashboard-card">
+
+            <div class="official-dashboard-card-image my-books-dashboard-image">
+
+                <div class="official-dashboard-card-icon">
+
+                    <i class="bi bi-journal-check"></i>
+
+                </div>
+
+            </div>
+
+            <div class="official-dashboard-card-body">
+
+                <h3>
+                    My Issued Books
+                </h3>
+
+                <p>
+                    View your issued books, due dates and return status.
+                </p>
+
+                <span class="official-dashboard-card-link">
+
+                    View My Books
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- Profile -->
+
+        <a
+            href="/teacher_profile"
+            class="official-dashboard-card">
+
+            <div class="official-dashboard-card-image profile-dashboard-image">
+
+                <div class="official-dashboard-card-icon">
+
+                    <i class="bi bi-person-circle"></i>
+
+                </div>
+
+            </div>
+
+            <div class="official-dashboard-card-body">
+
+                <h3>
+                    My Profile
+                </h3>
+
+                <p>
+                    View and manage your teacher account details.
+                </p>
+
+                <span class="official-dashboard-card-link">
+
+                    Open Profile
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- Logout -->
+
+        <a
+            href="/logout"
+            class="official-dashboard-card">
+
+            <div class="official-dashboard-card-image logout-dashboard-image">
+
+                <div class="official-dashboard-card-icon logout-icon">
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                </div>
+
+            </div>
+
+            <div class="official-dashboard-card-body">
+
+                <h3>
+                    Logout
+                </h3>
+
+                <p>
+                    Securely sign out from your teacher account.
+                </p>
+
+                <span class="official-dashboard-card-link logout-link">
+
+                    Logout
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- Information Strip -->
+
+    <section class="official-dashboard-info">
+
+        <div class="official-dashboard-info-icon">
+
+            <i class="bi bi-info-circle"></i>
+
+        </div>
+
+        <div>
+
+            <strong>
+                Teacher Library Portal
+            </strong>
+
+            <p>
+                Access books, search the collection and manage
+                your issued books from one place.
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

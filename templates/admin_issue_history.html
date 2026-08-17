@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-dark text-white">
+
+            <h3>
+
+                <i class="bi bi-clock-history"></i>
+
+                Admin Issue History
+
+            </h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <!-- Search and Filter Form -->
+
+            <form method="GET" class="row mb-4">
+
+                <div class="col-md-6">
+
+                    <input
+                        type="text"
+                        name="search"
+                        value="{{ search }}"
+                        class="form-control"
+                        placeholder="Search Book / Student / Teacher">
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <select
+                        name="status"
+                        class="form-select">
+
+                        <option value="">All Status</option>
+
+                        <option
+                            value="Issued"
+                            {% if status=="Issued" %}
+                            selected
+                            {% endif %}
+                        >
+                            Issued
+                        </option>
+
+                        <option
+                            value="Returned"
+                            {% if status=="Returned" %}
+                            selected
+                            {% endif %}
+                        >
+                            Returned
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <button
+                        class="btn btn-primary w-100">
+
+                        <i class="bi bi-search"></i>
+
+                        Search
+
+                    </button>
+
+                </div>
+
+            </form>
+
+            {% if books %}
+
+            <table class="table table-bordered table-hover table-striped align-middle">
+
+                <thead class="table-dark">
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>User Name</th>
+
+                        <th>User Type</th>
+
+                        <th>Book</th>
+
+                        <th>Issue Date</th>
+
+                        <th>Due Date</th>
+
+                        <th>Return Date</th>
+
+                        <th>Status</th>
+
+                        <th>Fine</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for book in books %}
+
+                    <tr>
+
+                        <td>{{ book[0] }}</td>
+
+                        <td>{{ book[1] }}</td>
+
+                        <td>
+
+                            {% if book[2] == "Student" %}
+
+                            <span class="badge bg-primary">
+
+                                Student
+
+                            </span>
+
+                            {% else %}
+
+                            <span class="badge bg-success">
+
+                                Teacher
+
+                            </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>{{ book[3] }}</td>
+
+                        <td>{{ book[4] }}</td>
+
+                        <td>{{ book[5] }}</td>
+
+                        <td>
+
+                            {% if book[6] %}
+
+                                {{ book[6] }}
+
+                            {% else %}
+
+                                -
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            {% if book[7] == "Issued" %}
+
+                                <span class="badge bg-warning text-dark">
+
+                                    Issued
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="badge bg-success">
+
+                                    Returned
+
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            ₹{{ book[8] }}
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+            {% else %}
+
+            <div class="alert alert-info text-center">
+
+                <h5>No records found.</h5>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+        <div class="card-footer">
+
+            <a
+                href="/admin_dashboard"
+                class="btn btn-secondary">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

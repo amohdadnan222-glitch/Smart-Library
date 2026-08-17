@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 admin-teacher-history-page">
+
+    <!-- Header -->
+
+    <div class="admin-teacher-history-header">
+
+        <div class="admin-teacher-history-title">
+
+            <div class="admin-teacher-history-icon">
+
+                <i class="bi bi-clock-history"></i>
+
+            </div>
+
+            <div>
+
+                <h2>
+                    {{ teacher_name }} - Issue History
+                </h2>
+
+                <p>
+                    View the teacher's complete book issue history.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- History Card -->
+
+    <div class="admin-teacher-history-card">
+
+        {% if books %}
+
+        <div class="table-responsive">
+
+            <table class="table admin-teacher-history-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Book</th>
+                        <th>Issue Date</th>
+                        <th>Due Date</th>
+                        <th>Return Date</th>
+                        <th>Status</th>
+                        <th>Fine</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                {% for book in books %}
+
+                    <tr>
+
+                        <td class="teacher-history-book">
+                            {{ book[0] }}
+                        </td>
+
+                        <td>
+                            {{ book[1] }}
+                        </td>
+
+                        <td>
+                            {{ book[2] }}
+                        </td>
+
+                        <td>
+
+                            {% if book[3] %}
+
+                                {{ book[3] }}
+
+                            {% else %}
+
+                                <span class="teacher-history-pending">
+                                    -
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if book[4] == "Issued" %}
+
+                                <span class="teacher-history-status issued">
+
+                                    <i class="bi bi-bookmark"></i>
+
+                                    Issued
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="teacher-history-status returned">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    Returned
+
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td class="teacher-history-fine">
+
+                            ₹{{ book[5] or 0 }}
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        {% else %}
+
+        <div class="teacher-history-empty">
+
+            <div class="teacher-history-empty-icon">
+
+                <i class="bi bi-journal-x"></i>
+
+            </div>
+
+            <h4>No Issue History</h4>
+
+            <p>
+                No books have been issued by this teacher.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- Footer -->
+
+        <div class="teacher-history-footer">
+
+            <a
+                href="/manage_teachers"
+                class="teacher-history-back">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Teachers
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

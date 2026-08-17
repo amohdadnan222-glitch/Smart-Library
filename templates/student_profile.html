@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 student-profile-page">
+
+    <div class="profile-wrapper">
+
+        <!-- Profile Header -->
+
+        <div class="profile-header student-profile-header">
+
+            <div class="profile-avatar">
+
+                <i class="bi bi-person-fill"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Student Profile</h2>
+
+                <p>
+                    View and manage your account information
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Profile Information -->
+
+        <div class="profile-card">
+
+            <div class="profile-card-title">
+
+                <i class="bi bi-person-badge"></i>
+
+                Account Information
+
+            </div>
+
+
+            <div class="profile-table">
+
+                <div class="profile-row">
+
+                    <div class="profile-label">
+
+                        <i class="bi bi-hash"></i>
+
+                        ID
+
+                    </div>
+
+                    <div class="profile-value">
+
+                        {{ student[0] }}
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <div class="profile-label">
+
+                        <i class="bi bi-person"></i>
+
+                        Name
+
+                    </div>
+
+                    <div class="profile-value">
+
+                        {{ student[1] }}
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <div class="profile-label">
+
+                        <i class="bi bi-envelope"></i>
+
+                        Email
+
+                    </div>
+
+                    <div class="profile-value">
+
+                        {{ student[2] }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="profile-actions">
+
+                <a
+                    href="/edit_student_profile"
+                    class="profile-action student-edit">
+
+                    <i class="bi bi-pencil-square"></i>
+
+                    Edit Profile
+
+                </a>
+
+
+                <a
+                    href="/change_student_password"
+                    class="profile-action student-password">
+
+                    <i class="bi bi-shield-lock"></i>
+
+                    Change Password
+
+                </a>
+
+
+                <a
+                    href="/student_dashboard"
+                    class="profile-action back">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Back to Dashboard
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

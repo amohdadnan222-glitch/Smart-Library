@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="official-dashboard">
+
+    <!-- Dashboard Hero -->
+
+    <section class="official-dashboard-hero student-dashboard-hero">
+
+        <div class="official-dashboard-hero-content">
+
+            <div class="official-dashboard-badge">
+
+                <i class="bi bi-mortarboard-fill"></i>
+
+                Student Portal
+
+            </div>
+
+            <h1>
+                Welcome, {{ session["student_name"] }}
+            </h1>
+
+            <p>
+                Manage your library activities, discover books,
+                and keep track of your issued books.
+            </p>
+
+        </div>
+
+        <div class="official-dashboard-hero-icon">
+
+            <i class="bi bi-person-circle"></i>
+
+        </div>
+
+    </section>
+
+
+    <!-- Section Heading -->
+
+    <div class="official-dashboard-heading">
+
+        <div>
+
+            <span>LIBRARY SERVICES</span>
+
+            <h2>
+                What would you like to do?
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- Dashboard Cards -->
+
+    <div class="official-dashboard-grid">
+
+
+        <!-- Available Books -->
+
+        <a
+            href="/student_books"
+            class="official-dashboard-card">
+
+            <div class="official-dashboard-card-image books-dashboard-image">
+
+                <div class="official-dashboard-card-icon">
+
+                    <i class="bi bi-book"></i>
+
+                </div>
+
+            </div>
+
+            <div class="official-dashboard-card-body">
+
+                <h3>
+                    Available Books
+                </h3>
+
+                <p>
+                    Browse books currently available in the library.
+                </p>
+
+                <span class="official-dashboard-card-link">
+
+                    Browse Books
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- My Books -->
+
+        <a
+            href="/my_books"
+            class="official-dashboard-card">
+
+            <div class="official-dashboard-card-image my-books-dashboard-image">
+
+                <div class="official-dashboard-card-icon">
+
+                    <i class="bi bi-journal-check"></i>
+
+                </div>
+
+            </div>
+
+            <div class="official-dashboard-card-body">
+
+                <h3>
+                    My Books
+                </h3>
+
+                <p>
+                    View your issued books, due dates and return status.
+                </p>
+
+                <span class="official-dashboard-card-link">
+
+                    View My Books
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- Search -->
+
+        <a
+            href="/search_books"
+            class="official-dashboard-card">
+
+            <div class="official-dashboard-card-image search-dashboard-image">
+
+                <div class="official-dashboard-card-icon">
+
+                    <i class="bi bi-search"></i>
+
+                </div>
+
+            </div>
+
+            <div class="official-dashboard-card-body">
+
+                <h3>
+                    Search Books
+                </h3>
+
+                <p>
+                    Find books quickly by title, author or category.
+                </p>
+
+                <span class="official-dashboard-card-link">
+
+                    Search Library
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- Logout -->
+
+        <a
+            href="/logout"
+            class="official-dashboard-card">
+
+            <div class="official-dashboard-card-image logout-dashboard-image">
+
+                <div class="official-dashboard-card-icon logout-icon">
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                </div>
+
+            </div>
+
+            <div class="official-dashboard-card-body">
+
+                <h3>
+                    Logout
+                </h3>
+
+                <p>
+                    Securely sign out from your student account.
+                </p>
+
+                <span class="official-dashboard-card-link logout-link">
+
+                    Logout
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- Information Strip -->
+
+    <section class="official-dashboard-info">
+
+        <div class="official-dashboard-info-icon">
+
+            <i class="bi bi-info-circle"></i>
+
+        </div>
+
+        <div>
+
+            <strong>
+                Digital Library Access
+            </strong>
+
+            <p>
+                Search, issue and manage your library books
+                from one convenient platform.
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

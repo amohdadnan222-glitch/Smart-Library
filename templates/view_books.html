@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 admin-books-page">
+
+    <!-- Header -->
+
+    <div class="admin-books-header">
+
+        <div class="admin-books-header-icon">
+
+            <i class="bi bi-book"></i>
+
+        </div>
+
+        <div>
+
+            <h2>Library Books</h2>
+
+            <p>
+                View and manage all books in the library.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Books Card -->
+
+    <div class="admin-books-card">
+
+        <div class="table-responsive">
+
+            <table class="table admin-books-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Category</th>
+                        <th>Qty</th>
+                        <th>Available</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                {% for book in books %}
+
+                    <tr>
+
+                        <td>
+                            {{ book[0] }}
+                        </td>
+
+                        <td class="admin-book-title">
+                            {{ book[1] }}
+                        </td>
+
+                        <td>
+                            {{ book[2] }}
+                        </td>
+
+                        <td class="isbn-cell">
+                            {{ book[3] }}
+                        </td>
+
+                        <td>
+                            {{ book[4] }}
+                        </td>
+
+                        <td>
+                            {{ book[5] }}
+                        </td>
+
+
+                        <td>
+
+                            {% if book[6] > 0 %}
+
+                                <span class="admin-availability available">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    {{ book[6] }}
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="admin-availability out">
+
+                                    <i class="bi bi-x-circle"></i>
+
+                                    Out
+
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="admin-book-actions">
+
+                                <a
+                                    href="/edit_book/{{ book[0] }}"
+                                    class="admin-edit-book"
+                                    title="Edit Book">
+
+                                    <i class="bi bi-pencil-square"></i>
+
+                                </a>
+
+
+                                <a
+                                    href="/delete_book/{{ book[0] }}"
+                                    class="admin-delete-book"
+                                    title="Delete Book"
+                                    onclick="return confirm('Delete this book?')">
+
+                                    <i class="bi bi-trash"></i>
+
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

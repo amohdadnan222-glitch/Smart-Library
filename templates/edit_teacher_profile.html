@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 edit-profile-page">
+
+    <div class="profile-form-wrapper">
+
+        <!-- Header -->
+        <div class="profile-form-header warning-header">
+
+            <div class="profile-form-icon">
+                <i class="bi bi-pencil-square"></i>
+            </div>
+
+            <div>
+                <h2>Edit Teacher Profile</h2>
+
+                <p>
+                    Update your profile information
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Form Card -->
+        <div class="profile-form-card">
+
+            <form method="POST">
+
+                <div class="profile-form-group">
+
+                    <label>
+                        <i class="bi bi-person"></i>
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        value="{{ teacher[0] }}"
+                        required>
+
+                </div>
+
+
+                <div class="profile-form-group">
+
+                    <label>
+                        <i class="bi bi-envelope"></i>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        value="{{ teacher[1] }}"
+                        readonly>
+
+                    <small>
+                        Email address cannot be changed.
+                    </small>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="profile-submit warning-submit">
+
+                    <i class="bi bi-check-circle"></i>
+
+                    Update Profile
+
+                </button>
+
+            </form>
+
+
+            <a
+                href="/teacher_profile"
+                class="profile-cancel">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Cancel
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

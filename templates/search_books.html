@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 student-search-page">
+
+    <div class="student-search-header">
+
+        <div class="student-search-header-icon">
+            <i class="bi bi-search"></i>
+        </div>
+
+        <div>
+
+            <h2>Search Books</h2>
+
+            <p>
+                Find books by title, author or category.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Search Form -->
+
+    <div class="student-search-card">
+
+        <form method="POST" class="student-search-form">
+
+            <div class="input-group">
+
+                <input
+                    type="text"
+                    name="keyword"
+                    class="form-control"
+                    placeholder="Enter title, author or category"
+                    required>
+
+                <button
+                    type="submit"
+                    class="student-search-button">
+
+                    <i class="bi bi-search"></i>
+                    Search
+
+                </button>
+
+            </div>
+
+        </form>
+
+
+        {% if books %}
+
+        <div class="table-responsive student-search-results">
+
+            <table class="table student-search-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Available</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% for book in books %}
+
+                    <tr>
+
+                        <td class="student-search-book-title">
+                            {{ book[1] }}
+                        </td>
+
+                        <td>
+                            {{ book[2] }}
+                        </td>
+
+                        <td>
+                            {{ book[4] }}
+                        </td>
+
+                        <td>
+
+                            {% if book[6] > 0 %}
+
+                                <span class="student-search-available">
+                                    {{ book[6] }}
+                                </span>
+
+                            {% else %}
+
+                                <span class="student-search-unavailable">
+                                    Out
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        {% elif searched %}
+
+        <div class="student-search-empty">
+
+            <div class="student-search-empty-icon">
+
+                <i class="bi bi-search"></i>
+
+            </div>
+
+            <h4>No Books Found</h4>
+
+            <p>
+                No books matched your search.
+                Try another title, author or category.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

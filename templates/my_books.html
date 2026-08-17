@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 student-my-books-page">
+
+    <div class="student-my-books-header">
+
+        <div class="student-my-books-header-icon">
+            <i class="bi bi-journal-check"></i>
+        </div>
+
+        <div>
+
+            <h2>My Books</h2>
+
+            <p>
+                View your issued books, due dates and return status.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="student-my-books-card">
+
+        {% if books %}
+
+        <div class="table-responsive">
+
+            <table class="table student-my-books-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Book</th>
+                        <th>Issue Date</th>
+                        <th>Due Date</th>
+                        <th>Return Date</th>
+                        <th>Status</th>
+                        <th>Fine</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                {% for book in books %}
+
+                    <tr>
+
+                        <!-- Book -->
+
+                        <td class="student-my-book-title">
+                            {{ book[0] }}
+                        </td>
+
+
+                        <!-- Issue Date -->
+
+                        <td>
+                            {{ book[1] }}
+                        </td>
+
+
+                        <!-- Due Date -->
+
+                        <td>
+                            {{ book[2] }}
+                        </td>
+
+
+                        <!-- Return Date -->
+
+                        <td>
+
+                            {% if book[3] %}
+
+                                {{ book[3] }}
+
+                            {% else %}
+
+                                <span class="student-return-pending">
+                                    -
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- Status -->
+
+                        <td>
+
+                            {% if book[4] == "Issued" %}
+
+                                <span class="student-status issued">
+
+                                    <i class="bi bi-bookmark"></i>
+                                    Issued
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="student-status returned">
+
+                                    <i class="bi bi-check-circle"></i>
+                                    Returned
+
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- Fine -->
+
+                        <td class="student-fine">
+
+                            ₹{{ book[5] or 0 }}
+
+                        </td>
+
+
+                        <!-- Action -->
+
+                        <td>
+
+                            {% if book[4] == "Issued" %}
+
+                                <a
+                                    href="/return_book/{{ book[6] }}"
+                                    class="student-return-button">
+
+                                    <i class="bi bi-arrow-return-left"></i>
+
+                                    Return
+
+                                </a>
+
+                            {% else %}
+
+                                <span class="student-already-returned">
+
+                                    <i class="bi bi-check2"></i>
+
+                                    Returned
+
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        {% else %}
+
+        <div class="student-empty-books">
+
+            <div class="student-empty-books-icon">
+
+                <i class="bi bi-journal-x"></i>
+
+            </div>
+
+            <h4>No Books Issued</h4>
+
+            <p>
+                You currently have no books issued to your account.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="student-my-books-footer">
+
+            <a
+                href="/student_dashboard"
+                class="student-back-button">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

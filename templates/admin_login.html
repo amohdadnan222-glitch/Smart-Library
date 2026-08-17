@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="auth-premium-page">
+
+    <div class="auth-premium-card auth-admin-card">
+
+        <div class="auth-premium-visual">
+
+            <div class="auth-visual-overlay"></div>
+
+            <div class="auth-visual-content">
+
+                <div class="auth-visual-logo">
+                    <i class="bi bi-shield-lock-fill"></i>
+                </div>
+
+                <span class="auth-visual-label">
+                    LIBRARY MANAGEMENT SYSTEM
+                </span>
+
+                <h1>
+                    Secure<br>
+                    Administration
+                </h1>
+
+                <p>
+                    Manage books, users, circulation and
+                    library reports from one centralized portal.
+                </p>
+
+                <div class="auth-visual-points">
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Centralized management
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Library analytics
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Secure access
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="auth-premium-form">
+
+            <div class="auth-form-icon admin-icon">
+                <i class="bi bi-shield-lock"></i>
+            </div>
+
+            <div class="auth-form-label">
+                ADMIN PORTAL
+            </div>
+
+            <h2>
+                Welcome Back
+            </h2>
+
+            <p class="auth-form-subtitle">
+                Sign in to access the administration dashboard.
+            </p>
+
+
+            <form method="POST">
+
+                <div class="auth-field">
+
+                    <label>
+                        <i class="bi bi-person"></i>
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        name="username"
+                        class="form-control"
+                        placeholder="Enter username"
+                        required>
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        <i class="bi bi-lock"></i>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Enter password"
+                        required>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-submit admin-submit">
+
+                    <i class="bi bi-box-arrow-in-right"></i>
+
+                    Login to Admin Portal
+
+                </button>
+
+            </form>
+
+
+            <div class="auth-back">
+
+                <a href="/">
+                    <i class="bi bi-arrow-left"></i>
+                    Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

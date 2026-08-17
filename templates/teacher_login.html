@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="auth-premium-page">
+
+    <div class="auth-premium-card auth-teacher-card">
+
+        <div class="auth-premium-visual">
+
+            <div class="auth-visual-overlay"></div>
+
+            <div class="auth-visual-content">
+
+                <div class="auth-visual-logo">
+                    <i class="bi bi-person-workspace"></i>
+                </div>
+
+                <span class="auth-visual-label">
+                    LIBRARY MANAGEMENT SYSTEM
+                </span>
+
+                <h1>
+                    Empowering<br>
+                    Educators
+                </h1>
+
+                <p>
+                    Access library resources, manage book circulation
+                    and keep track of your issued books.
+                </p>
+
+                <div class="auth-visual-points">
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Browse library books
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Manage issued books
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Manage your profile
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="auth-premium-form">
+
+            <div class="auth-form-icon teacher-icon">
+                <i class="bi bi-person-workspace"></i>
+            </div>
+
+            <div class="auth-form-label">
+                TEACHER PORTAL
+            </div>
+
+            <h2>
+                Teacher Login
+            </h2>
+
+            <p class="auth-form-subtitle">
+                Login to access your library dashboard.
+            </p>
+
+
+            <form method="POST">
+
+                <div class="auth-field">
+
+                    <label>
+                        <i class="bi bi-envelope"></i>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        <i class="bi bi-lock"></i>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Enter your password"
+                        required>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-submit teacher-submit">
+
+                    <i class="bi bi-box-arrow-in-right"></i>
+
+                    Login to Teacher Portal
+
+                </button>
+
+            </form>
+
+
+            <div class="auth-divider">
+                <span>New to the library?</span>
+            </div>
+
+
+            <a
+                href="/teacher_register"
+                class="auth-register-button">
+
+                <i class="bi bi-person-plus"></i>
+
+                Create Teacher Account
+
+            </a>
+
+
+            <div class="auth-back">
+
+                <a href="/">
+                    <i class="bi bi-arrow-left"></i>
+                    Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

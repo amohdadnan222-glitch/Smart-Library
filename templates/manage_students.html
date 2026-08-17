@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 manage-students-page">
+
+    <!-- Header -->
+
+    <div class="manage-students-header">
+
+        <div class="manage-students-title">
+
+            <div class="manage-students-icon">
+                <i class="bi bi-people-fill"></i>
+            </div>
+
+            <div>
+
+                <h2>Manage Students</h2>
+
+                <p>
+                    View and manage registered student accounts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="/admin_dashboard"
+            class="manage-students-back">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Back
+
+        </a>
+
+    </div>
+
+
+    <!-- Main Card -->
+
+    <div class="manage-students-card">
+
+        <!-- Search -->
+
+        <div class="student-search-area">
+
+            <div class="student-search-label">
+
+                <i class="bi bi-search"></i>
+
+                Search Students
+
+            </div>
+
+            <input
+                type="text"
+                id="searchStudent"
+                class="form-control student-search-input"
+                placeholder="Search by student name or email...">
+
+        </div>
+
+
+        <!-- Table -->
+
+        <div class="table-responsive">
+
+            <table class="table manage-students-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="studentTable">
+
+                {% for student in students %}
+
+                    <tr>
+
+                        <td class="student-id">
+                            {{ student[0] }}
+                        </td>
+
+                        <td class="student-name">
+                            {{ student[1] }}
+                        </td>
+
+                        <td class="student-email">
+                            {{ student[2] }}
+                        </td>
+
+                        <td>
+
+                            <div class="student-action-buttons">
+
+                                <a
+                                    href="/edit_student/{{ student[0] }}"
+                                    class="student-edit-button">
+
+                                    <i class="bi bi-pencil-square"></i>
+                                    Edit
+
+                                </a>
+
+
+                                <a
+                                    href="/delete_student/{{ student[0] }}"
+                                    class="student-delete-button"
+                                    onclick="return confirm('Are you sure you want to Delete this student?')">
+
+                                    <i class="bi bi-trash"></i>
+                                    Delete
+
+                                </a>
+
+
+                                <a
+                                    href="/student_history/{{ student[0] }}"
+                                    class="student-history-button">
+
+                                    <i class="bi bi-clock-history"></i>
+                                    History
+
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- Empty Search State -->
+
+        <div
+            id="studentSearchEmpty"
+            class="student-search-empty"
+            style="display: none;">
+
+            <div class="student-search-empty-icon">
+
+                <i class="bi bi-person-x"></i>
+
+            </div>
+
+            <h4>No Students Found</h4>
+
+            <p>
+                No student matched your search.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+document
+    .getElementById("searchStudent")
+    .addEventListener("keyup", function () {
+
+        let value = this.value.toLowerCase();
+
+        let rows =
+            document.querySelectorAll("#studentTable tr");
+
+        let visibleRows = 0;
+
+        rows.forEach(function (row) {
+
+            let visible =
+                row.innerText
+                    .toLowerCase()
+                    .includes(value);
+
+            row.style.display =
+                visible ? "" : "none";
+
+            if (visible) {
+                visibleRows++;
+            }
+
+        });
+
+
+        let emptyState =
+            document.getElementById("studentSearchEmpty");
+
+        emptyState.style.display =
+            visibleRows === 0 ? "block" : "none";
+
+    });
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 edit-book-page">
+
+    <!-- Header -->
+
+    <div class="edit-book-header">
+
+        <div class="edit-book-header-icon">
+
+            <i class="bi bi-pencil-square"></i>
+
+        </div>
+
+        <div>
+
+            <h2>Edit Book</h2>
+
+            <p>
+                Update the information for this library book.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Form Card -->
+
+    <div class="edit-book-card">
+
+        <form method="POST">
+
+            <!-- Book Information -->
+
+            <div class="edit-book-section-title">
+
+                <i class="bi bi-book"></i>
+
+                Book Information
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <!-- Title -->
+
+                <div class="col-md-12">
+
+                    <label class="edit-book-label">
+
+                        <i class="bi bi-bookmark"></i>
+
+                        Title
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="title"
+                        value="{{ book[1] }}"
+                        class="form-control edit-book-input"
+                        required>
+
+                </div>
+
+
+                <!-- Author -->
+
+                <div class="col-md-6">
+
+                    <label class="edit-book-label">
+
+                        <i class="bi bi-person"></i>
+
+                        Author
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="author"
+                        value="{{ book[2] }}"
+                        class="form-control edit-book-input"
+                        required>
+
+                </div>
+
+
+                <!-- ISBN -->
+
+                <div class="col-md-6">
+
+                    <label class="edit-book-label">
+
+                        <i class="bi bi-upc-scan"></i>
+
+                        ISBN
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="isbn"
+                        value="{{ book[3] }}"
+                        class="form-control edit-book-input"
+                        required>
+
+                </div>
+
+
+                <!-- Category -->
+
+                <div class="col-md-12">
+
+                    <label class="edit-book-label">
+
+                        <i class="bi bi-tags"></i>
+
+                        Category
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="category"
+                        value="{{ book[4] }}"
+                        class="form-control edit-book-input"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- Inventory -->
+
+            <div class="edit-book-section-title inventory-section">
+
+                <i class="bi bi-boxes"></i>
+
+                Inventory Information
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <!-- Quantity -->
+
+                <div class="col-md-6">
+
+                    <label class="edit-book-label">
+
+                        <i class="bi bi-stack"></i>
+
+                        Quantity
+
+                    </label>
+
+                    <input
+                        type="number"
+                        name="quantity"
+                        value="{{ book[5] }}"
+                        class="form-control edit-book-input">
+
+                </div>
+
+
+                <!-- Available -->
+
+                <div class="col-md-6">
+
+                    <label class="edit-book-label">
+
+                        <i class="bi bi-check2-square"></i>
+
+                        Available Quantity
+
+                    </label>
+
+                    <input
+                        type="number"
+                        name="available_quantity"
+                        value="{{ book[6] }}"
+                        class="form-control edit-book-input">
+
+                </div>
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="edit-book-actions">
+
+                <button
+                    type="submit"
+                    class="edit-book-submit">
+
+                    <i class="bi bi-check-circle"></i>
+
+                    Update Book
+
+                </button>
+
+
+                <a
+                    href="/view_books"
+                    class="edit-book-cancel">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Cancel
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

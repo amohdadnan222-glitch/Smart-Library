@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 student-history-page">
+
+    <!-- History Header -->
+
+    <div class="student-history-header">
+
+        <div class="student-history-icon">
+
+            <i class="bi bi-clock-history"></i>
+
+        </div>
+
+        <div>
+
+            <h2>
+                {{ student_name }} - Issue History
+            </h2>
+
+            <p>
+                View the student's complete book issue history.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- History Card -->
+
+    <div class="student-history-card">
+
+        {% if books %}
+
+        <div class="table-responsive">
+
+            <table class="table student-history-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Book</th>
+                        <th>Issue Date</th>
+                        <th>Due Date</th>
+                        <th>Return Date</th>
+                        <th>Status</th>
+                        <th>Fine</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                {% for book in books %}
+
+                    <tr>
+
+                        <!-- Book -->
+
+                        <td class="history-book-title">
+                            {{ book[0] }}
+                        </td>
+
+
+                        <!-- Issue Date -->
+
+                        <td>
+                            {{ book[1] }}
+                        </td>
+
+
+                        <!-- Due Date -->
+
+                        <td>
+                            {{ book[2] }}
+                        </td>
+
+
+                        <!-- Return Date -->
+
+                        <td>
+
+                            {% if book[3] %}
+
+                                {{ book[3] }}
+
+                            {% else %}
+
+                                <span class="history-pending">
+                                    -
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- Status -->
+
+                        <td>
+
+                            {% if book[4] == "Issued" %}
+
+                                <span class="history-status issued">
+
+                                    <i class="bi bi-bookmark"></i>
+                                    Issued
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="history-status returned">
+
+                                    <i class="bi bi-check-circle"></i>
+                                    Returned
+
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <!-- Fine -->
+
+                        <td class="history-fine">
+
+                            ₹{{ book[5] or 0 }}
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        {% else %}
+
+        <div class="history-empty">
+
+            <div class="history-empty-icon">
+
+                <i class="bi bi-journal-x"></i>
+
+            </div>
+
+            <h4>No Issue History</h4>
+
+            <p>
+                No books have been issued by this student.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- Footer -->
+
+        <div class="history-footer">
+
+            <a
+                href="/manage_students"
+                class="history-back-button">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Students
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

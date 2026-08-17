@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 available-books-page">
+
+    <div class="card shadow">
+
+        <!-- Page Header -->
+        <div class="card-header bg-primary text-white">
+
+            <h3>
+                <i class="bi bi-book"></i>
+                Available Books
+            </h3>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <!-- Search -->
+            <form
+                method="GET"
+                action="/teacher_books"
+                class="mb-3 search-area">
+
+                <div class="input-group">
+
+                    <input
+                        type="text"
+                        name="search"
+                        class="form-control"
+                        placeholder="Search books..."
+                        value="{{ search }}">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary search-button">
+
+                        <i class="bi bi-search"></i>
+                        Search
+
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- Books Table -->
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover">
+
+                    <thead class="table-dark">
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Title</th>
+
+                            <th>Author</th>
+
+                            <th>Category</th>
+
+                            <th>Available</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                    {% for book in books %}
+
+                        <tr>
+
+                            <td>
+                                {{ book[0] }}
+                            </td>
+
+                            <td>
+                                {{ book[1] }}
+                            </td>
+
+                            <td>
+                                {{ book[2] }}
+                            </td>
+
+                            <td>
+                                {{ book[4] }}
+                            </td>
+
+                            <td>
+
+                                {% if book[6] > 0 %}
+
+                                    <span class="availability-badge available">
+                                        {{ book[6] }}
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="availability-badge unavailable">
+                                        0
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+
+                            <td>
+
+                                {% if book[6] > 0 %}
+
+                                    <a
+                                        href="/teacher_issue_book/{{ book[0] }}"
+                                        class="btn btn-success btn-sm issue-button">
+
+                                        <i class="bi bi-journal-plus"></i>
+                                        Issue
+
+                                    </a>
+
+                                {% else %}
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-secondary btn-sm"
+                                        disabled>
+
+                                        <i class="bi bi-x-circle"></i>
+                                        Out of Stock
+
+                                    </button>
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 teacher-my-books-page">
+
+    <div class="card shadow">
+
+        <!-- Header -->
+        <div class="card-header bg-success text-white">
+
+            <h3>
+                <i class="bi bi-journal-check"></i>
+                Teacher My Books
+            </h3>
+
+        </div>
+
+
+        <div class="card-body">
+
+            {% if books %}
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover">
+
+                    <thead class="table-dark">
+
+                        <tr>
+
+                            <th>Book</th>
+                            <th>Issue Date</th>
+                            <th>Due Date</th>
+                            <th>Return Date</th>
+                            <th>Status</th>
+                            <th>Fine</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                    {% for book in books %}
+
+                        <tr>
+
+                            <!-- Book -->
+                            <td class="book-title">
+                                {{ book[0] }}
+                            </td>
+
+
+                            <!-- Issue Date -->
+                            <td>
+                                {{ book[1] }}
+                            </td>
+
+
+                            <!-- Due Date -->
+                            <td>
+                                {{ book[2] }}
+                            </td>
+
+
+                            <!-- Return Date -->
+                            <td>
+
+                                {% if book[3] %}
+
+                                    {{ book[3] }}
+
+                                {% else %}
+
+                                    <span class="return-pending">
+                                        -
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+
+                            <!-- Status -->
+                            <td>
+
+                                {% if book[4] == "Issued" %}
+
+                                    <span class="status-badge status-issued">
+
+                                        <i class="bi bi-bookmark"></i>
+                                        Issued
+
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="status-badge status-returned">
+
+                                        <i class="bi bi-check-circle"></i>
+                                        Returned
+
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+
+                            <!-- Fine -->
+                            <td class="fine-cell">
+
+                                ₹{{ book[5] or 0 }}
+
+                            </td>
+
+
+                            <!-- Action -->
+                            <td>
+
+                                {% if book[4] == "Issued" %}
+
+                                    <a
+                                        href="/teacher_return_book/{{ book[6] }}"
+                                        class="return-button">
+
+                                        <i class="bi bi-arrow-return-left"></i>
+                                        Return
+
+                                    </a>
+
+                                {% else %}
+
+                                    <span class="already-returned">
+
+                                        <i class="bi bi-check2"></i>
+                                        Returned
+
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            {% else %}
+
+                <div class="empty-books">
+
+                    <div class="empty-books-icon">
+
+                        <i class="bi bi-journal-x"></i>
+
+                    </div>
+
+                    <h4>No Books Issued</h4>
+
+                    <p>
+                        You currently have no books issued to your account.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- Footer -->
+        <div class="card-footer">
+
+            <a
+                href="/teacher_dashboard"
+                class="btn btn-secondary">
+
+                <i class="bi bi-arrow-left"></i>
+                Back
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

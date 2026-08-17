@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 manage-teachers-page">
+
+    <!-- Header -->
+
+    <div class="manage-teachers-header">
+
+        <div class="manage-teachers-title">
+
+            <div class="manage-teachers-icon">
+                <i class="bi bi-person-workspace"></i>
+            </div>
+
+            <div>
+
+                <h2>Manage Teachers</h2>
+
+                <p>
+                    View and manage registered teacher accounts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="/admin_dashboard"
+            class="manage-teachers-back">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Back
+
+        </a>
+
+    </div>
+
+
+    <!-- Main Card -->
+
+    <div class="manage-teachers-card">
+
+        <!-- Search -->
+
+        <div class="teacher-search-area">
+
+            <div class="teacher-search-label">
+
+                <i class="bi bi-search"></i>
+
+                Search Teachers
+
+            </div>
+
+            <input
+                type="text"
+                id="searchTeacher"
+                class="form-control teacher-search-input"
+                placeholder="Search by teacher name or email...">
+
+        </div>
+
+
+        <!-- Table -->
+
+        <div class="table-responsive">
+
+            <table class="table manage-teachers-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="teacherTable">
+
+                {% for teacher in teachers %}
+
+                    <tr>
+
+                        <td class="teacher-id">
+                            {{ teacher[0] }}
+                        </td>
+
+                        <td class="teacher-name">
+                            {{ teacher[1] }}
+                        </td>
+
+                        <td class="teacher-email">
+                            {{ teacher[2] }}
+                        </td>
+
+                        <td>
+
+                            <div class="teacher-action-buttons">
+
+                                <a
+                                    href="/edit_teacher/{{ teacher[0] }}"
+                                    class="teacher-edit-button">
+
+                                    <i class="bi bi-pencil-square"></i>
+                                    Edit
+
+                                </a>
+
+
+                                <a
+                                    href="/delete_teacher/{{ teacher[0] }}"
+                                    class="teacher-delete-button"
+                                    onclick="return confirm('Are you sure you want to Delete this teacher?')">
+
+                                    <i class="bi bi-trash"></i>
+                                    Delete
+
+                                </a>
+
+
+                                <a
+                                    href="/teacher_history/{{ teacher[0] }}"
+                                    class="teacher-history-button">
+
+                                    <i class="bi bi-clock-history"></i>
+                                    History
+
+                                </a>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- Empty Search State -->
+
+        <div
+            id="teacherSearchEmpty"
+            class="teacher-search-empty"
+            style="display: none;">
+
+            <div class="teacher-search-empty-icon">
+
+                <i class="bi bi-person-x"></i>
+
+            </div>
+
+            <h4>No Teachers Found</h4>
+
+            <p>
+                No teacher matched your search.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+document
+    .getElementById("searchTeacher")
+    .addEventListener("keyup", function () {
+
+        let value = this.value.toLowerCase();
+
+        let rows =
+            document.querySelectorAll("#teacherTable tr");
+
+        let visibleRows = 0;
+
+        rows.forEach(function (row) {
+
+            let visible =
+                row.innerText
+                    .toLowerCase()
+                    .includes(value);
+
+            row.style.display =
+                visible ? "" : "none";
+
+            if (visible) {
+                visibleRows++;
+            }
+
+        });
+
+
+        let emptyState =
+            document.getElementById("teacherSearchEmpty");
+
+        emptyState.style.display =
+            visibleRows === 0 ? "block" : "none";
+
+    });
+
+</script>
+
+{% endblock %}

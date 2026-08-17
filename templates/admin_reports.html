@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 admin-reports-page">
+
+    <!-- Reports Header -->
+
+    <div class="admin-reports-header">
+
+        <div class="admin-reports-title">
+
+            <div class="admin-reports-icon">
+
+                <i class="bi bi-file-earmark-text"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Reports</h2>
+
+                <p>
+                    Generate and view library management reports.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Reports Card -->
+
+    <div class="admin-reports-card">
+
+        <div class="admin-reports-section-title">
+
+            <i class="bi bi-bar-chart"></i>
+
+            Available Reports
+
+        </div>
+
+
+        <div class="admin-reports-grid">
+
+
+            <!-- Books Report -->
+
+            <a
+                href="/report/books"
+                class="admin-report-item books-report">
+
+                <div class="admin-report-icon">
+
+                    <i class="bi bi-book"></i>
+
+                </div>
+
+                <div class="admin-report-content">
+
+                    <h3>
+                        Books Report
+                    </h3>
+
+                    <p>
+                        View and generate a report of all library books.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right admin-report-arrow"></i>
+
+            </a>
+
+
+            <!-- Students Report -->
+
+            <a
+                href="/report/students"
+                class="admin-report-item students-report">
+
+                <div class="admin-report-icon">
+
+                    <i class="bi bi-mortarboard"></i>
+
+                </div>
+
+                <div class="admin-report-content">
+
+                    <h3>
+                        Students Report
+                    </h3>
+
+                    <p>
+                        View registered students and related records.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right admin-report-arrow"></i>
+
+            </a>
+
+
+            <!-- Teachers Report -->
+
+            <a
+                href="/report/teachers"
+                class="admin-report-item teachers-report">
+
+                <div class="admin-report-icon">
+
+                    <i class="bi bi-person-workspace"></i>
+
+                </div>
+
+                <div class="admin-report-content">
+
+                    <h3>
+                        Teachers Report
+                    </h3>
+
+                    <p>
+                        View registered teachers and related records.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right admin-report-arrow"></i>
+
+            </a>
+
+
+            <!-- Issued Books Report -->
+
+            <a
+                href="/report/issues"
+                class="admin-report-item issues-report">
+
+                <div class="admin-report-icon">
+
+                    <i class="bi bi-journal-check"></i>
+
+                </div>
+
+                <div class="admin-report-content">
+
+                    <h3>
+                        Issued Books Report
+                    </h3>
+
+                    <p>
+                        View records of issued books and their status.
+                    </p>
+
+                </div>
+
+                <i class="bi bi-arrow-right admin-report-arrow"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

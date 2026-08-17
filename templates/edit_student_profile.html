@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 edit-student-profile-page">
+
+    <div class="student-form-wrapper">
+
+        <!-- Header -->
+        <div class="student-form-header warning-header">
+
+            <div class="student-form-icon">
+                <i class="bi bi-pencil-square"></i>
+            </div>
+
+            <div>
+                <h2>Edit Student Profile</h2>
+
+                <p>
+                    Update your profile information
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Form Card -->
+        <div class="student-form-card">
+
+            <form method="POST">
+
+                <div class="student-form-group">
+
+                    <label>
+                        <i class="bi bi-person"></i>
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        value="{{ student[0] }}"
+                        required>
+
+                </div>
+
+
+                <div class="student-form-group">
+
+                    <label>
+                        <i class="bi bi-envelope"></i>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        value="{{ student[1] }}"
+                        readonly>
+
+                    <small>
+                        Email address cannot be changed.
+                    </small>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="student-form-submit warning-submit">
+
+                    <i class="bi bi-check-circle"></i>
+
+                    Update Profile
+
+                </button>
+
+            </form>
+
+
+            <a
+                href="/student_profile"
+                class="student-form-cancel">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Cancel
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

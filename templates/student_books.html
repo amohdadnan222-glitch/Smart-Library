@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 student-books-page">
+
+    <!-- Header -->
+
+    <div class="student-books-header">
+
+        <div class="student-books-header-icon">
+            <i class="bi bi-book"></i>
+        </div>
+
+        <div>
+
+            <h2>Available Books</h2>
+
+            <p>
+                Browse books currently available in the library.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Main Card -->
+
+    <div class="student-books-card">
+
+        <!-- Search Bar -->
+
+        <form
+            method="GET"
+            action="/student_books"
+            class="student-books-search-form">
+
+            <div class="input-group">
+
+                <input
+                    type="text"
+                    name="search"
+                    class="form-control"
+                    placeholder="Search books..."
+                    value="{{ search|default('') }}">
+
+                <button
+                    type="submit"
+                    class="student-books-search-button">
+
+                    <i class="bi bi-search"></i>
+
+                    Search
+
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- Books Table -->
+
+        <div class="table-responsive">
+
+            <table class="table student-books-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Available</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                {% for book in books %}
+
+                    <tr>
+
+                        <td class="student-book-title">
+                            {{ book[1] }}
+                        </td>
+
+                        <td>
+                            {{ book[2] }}
+                        </td>
+
+                        <td>
+                            {{ book[4] }}
+                        </td>
+
+                        <td>
+
+                            {% if book[6] > 0 %}
+
+                                <span class="student-availability available">
+                                    {{ book[6] }}
+                                </span>
+
+                            {% else %}
+
+                                <span class="student-availability out">
+                                    Out
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if book[6] > 0 %}
+
+                                <a
+                                    href="/issue_book/{{ book[0] }}"
+                                    class="student-issue-button">
+
+                                    <i class="bi bi-journal-plus"></i>
+
+                                    Issue
+
+                                </a>
+
+                            {% else %}
+
+                                <button
+                                    type="button"
+                                    class="student-unavailable-button"
+                                    disabled>
+
+                                    <i class="bi bi-x-circle"></i>
+
+                                    Unavailable
+
+                                </button>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

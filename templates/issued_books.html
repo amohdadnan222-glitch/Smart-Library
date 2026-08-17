@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 admin-issued-books-page">
+
+    <!-- Header -->
+
+    <div class="admin-issued-header">
+
+        <div class="admin-issued-title">
+
+            <div class="admin-issued-icon">
+                <i class="bi bi-journal-check"></i>
+            </div>
+
+            <div>
+
+                <h2>Issued Books</h2>
+
+                <p>
+                    View all books currently issued and their return status.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="/admin_dashboard"
+            class="admin-issued-back">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Back
+
+        </a>
+
+    </div>
+
+
+    <!-- Main Card -->
+
+    <div class="admin-issued-card">
+
+        {% if books %}
+
+        <div class="table-responsive">
+
+            <table class="table admin-issued-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Issue ID</th>
+                        <th>Name</th>
+                        <th>Book</th>
+                        <th>User Type</th>
+                        <th>Issue Date</th>
+                        <th>Return Date</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                {% for book in books %}
+
+                    <tr>
+
+                        <td class="issue-id">
+                            {{ book[0] }}
+                        </td>
+
+                        <td class="issue-user">
+                            {{ book[1] }}
+                        </td>
+
+                        <td class="issue-book">
+                            {{ book[2] }}
+                        </td>
+
+                        <td>
+
+                            {% if book[3] == "Student" %}
+
+                                <span class="user-type student-type">
+                                    <i class="bi bi-mortarboard"></i>
+                                    Student
+                                </span>
+
+                            {% elif book[3] == "Teacher" %}
+
+                                <span class="user-type teacher-type">
+                                    <i class="bi bi-person-workspace"></i>
+                                    Teacher
+                                </span>
+
+                            {% else %}
+
+                                <span class="user-type">
+                                    {{ book[3] }}
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+                            {{ book[4] }}
+                        </td>
+
+
+                        <td>
+
+                            {% if book[5] %}
+
+                                {{ book[5] }}
+
+                            {% else %}
+
+                                <span class="return-date-pending">
+                                    -
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if book[6] == "Issued" %}
+
+                                <span class="issued-status">
+
+                                    <i class="bi bi-bookmark"></i>
+
+                                    Issued
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="returned-status">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    Returned
+
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        {% else %}
+
+        <div class="issued-empty-state">
+
+            <div class="issued-empty-icon">
+
+                <i class="bi bi-journal-x"></i>
+
+            </div>
+
+            <h4>No Issued Books</h4>
+
+            <p>
+                No books have been issued yet.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- Footer -->
+
+        <div class="admin-issued-footer">
+
+            <a
+                href="/admin_dashboard"
+                class="admin-issued-back-button">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

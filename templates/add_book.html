@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 add-book-page">
+
+    <!-- Page Header -->
+
+    <div class="add-book-header">
+
+        <div class="add-book-header-icon">
+
+            <i class="bi bi-plus-circle"></i>
+
+        </div>
+
+        <div>
+
+            <h2>Add New Book</h2>
+
+            <p>
+                Enter the details below to add a book to the library.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Form Card -->
+
+    <div class="add-book-card">
+
+        <form method="POST">
+
+            <!-- Basic Information -->
+
+            <div class="form-section-title">
+
+                <i class="bi bi-book"></i>
+
+                Book Information
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <!-- Title -->
+
+                <div class="col-md-12">
+
+                    <label class="add-book-label">
+
+                        <i class="bi bi-bookmark"></i>
+
+                        Book Title
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="title"
+                        class="form-control add-book-input"
+                        placeholder="Enter book title"
+                        required>
+
+                </div>
+
+
+                <!-- Author -->
+
+                <div class="col-md-6">
+
+                    <label class="add-book-label">
+
+                        <i class="bi bi-person"></i>
+
+                        Author
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="author"
+                        class="form-control add-book-input"
+                        placeholder="Enter author name"
+                        required>
+
+                </div>
+
+
+                <!-- ISBN -->
+
+                <div class="col-md-6">
+
+                    <label class="add-book-label">
+
+                        <i class="bi bi-upc-scan"></i>
+
+                        ISBN
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="isbn"
+                        class="form-control add-book-input"
+                        placeholder="Enter ISBN"
+                        required>
+
+                </div>
+
+
+                <!-- Category -->
+
+                <div class="col-md-12">
+
+                    <label class="add-book-label">
+
+                        <i class="bi bi-tags"></i>
+
+                        Category
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="category"
+                        class="form-control add-book-input"
+                        placeholder="e.g. Programming, Database, Networking"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quantity Section -->
+
+            <div class="form-section-title quantity-title">
+
+                <i class="bi bi-boxes"></i>
+
+                Inventory Information
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <!-- Quantity -->
+
+                <div class="col-md-6">
+
+                    <label class="add-book-label">
+
+                        <i class="bi bi-stack"></i>
+
+                        Quantity
+
+                    </label>
+
+                    <input
+                        type="number"
+                        name="quantity"
+                        class="form-control add-book-input"
+                        min="0"
+                        placeholder="Total quantity"
+                        required>
+
+                </div>
+
+
+                <!-- Available Quantity -->
+
+                <div class="col-md-6">
+
+                    <label class="add-book-label">
+
+                        <i class="bi bi-check2-square"></i>
+
+                        Available Quantity
+
+                    </label>
+
+                    <input
+                        type="number"
+                        name="available_quantity"
+                        class="form-control add-book-input"
+                        min="0"
+                        placeholder="Available quantity"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="add-book-actions">
+
+                <button
+                    type="submit"
+                    class="add-book-submit">
+
+                    <i class="bi bi-plus-circle"></i>
+
+                    Add Book
+
+                </button>
+
+
+                <a
+                    href="/admin_dashboard"
+                    class="add-book-back">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Back to Dashboard
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

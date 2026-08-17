@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 admin-issues-report-page">
+
+    <!-- Header -->
+
+    <div class="admin-report-page-header issues-report-header">
+
+        <div class="admin-report-page-icon">
+
+            <i class="bi bi-journal-check"></i>
+
+        </div>
+
+        <div>
+
+            <h2>Issued Books Report</h2>
+
+            <p>
+                Overview of issued books, return status and fines.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Report Card -->
+
+    <div class="admin-report-page-card">
+
+        <div class="report-table-responsive">
+
+            <table class="table admin-report-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Book</th>
+                        <th>User Type</th>
+                        <th>Issue Date</th>
+                        <th>Due Date</th>
+                        <th>Return Date</th>
+                        <th>Status</th>
+                        <th>Fine</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                {% for issue in issues %}
+
+                    <tr>
+
+                        <td class="issue-report-book">
+                            {{ issue[0] }}
+                        </td>
+
+
+                        <td>
+
+                            {% if issue[1] == "Student" %}
+
+                                <span class="issue-user-type student-issue-type">
+
+                                    <i class="bi bi-mortarboard"></i>
+
+                                    Student
+
+                                </span>
+
+                            {% elif issue[1] == "Teacher" %}
+
+                                <span class="issue-user-type teacher-issue-type">
+
+                                    <i class="bi bi-person-workspace"></i>
+
+                                    Teacher
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="issue-user-type">
+                                    {{ issue[1] }}
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+                            {{ issue[2] }}
+                        </td>
+
+
+                        <td>
+                            {{ issue[3] }}
+                        </td>
+
+
+                        <td>
+
+                            {% if issue[4] %}
+
+                                {{ issue[4] }}
+
+                            {% else %}
+
+                                <span class="issue-return-pending">
+                                    -
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if issue[5] == "Issued" %}
+
+                                <span class="issue-report-status issued">
+
+                                    <i class="bi bi-bookmark"></i>
+
+                                    Issued
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="issue-report-status returned">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    Returned
+
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td class="issue-report-fine">
+
+                            ₹{{ issue[6] or 0 }}
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="admin-report-footer">
+
+            <a
+                href="/admin_reports"
+                class="admin-report-back">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Back to Reports
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

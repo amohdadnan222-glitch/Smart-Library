@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4 admin-edit-student-page">
+
+    <!-- Header -->
+
+    <div class="admin-edit-student-header">
+
+        <div class="admin-edit-student-icon">
+
+            <i class="bi bi-pencil-square"></i>
+
+        </div>
+
+        <div>
+
+            <h2>Edit Student</h2>
+
+            <p>
+                Update the student's account information.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Form Card -->
+
+    <div class="admin-edit-student-card">
+
+        <form method="POST">
+
+            <div class="admin-student-form-section">
+
+                <i class="bi bi-person-badge"></i>
+
+                Student Information
+
+            </div>
+
+
+            <!-- Name -->
+
+            <div class="admin-student-form-group">
+
+                <label class="admin-student-form-label">
+
+                    <i class="bi bi-person"></i>
+
+                    Name
+
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    class="form-control admin-student-input"
+                    value="{{ student[1] }}"
+                    required>
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="admin-student-form-group">
+
+                <label class="admin-student-form-label">
+
+                    <i class="bi bi-envelope"></i>
+
+                    Email
+
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control admin-student-input"
+                    value="{{ student[2] }}"
+                    required>
+
+            </div>
+
+
+            <!-- Password -->
+
+            <div class="admin-student-form-group">
+
+                <label class="admin-student-form-label">
+
+                    <i class="bi bi-lock"></i>
+
+                    Password
+
+                </label>
+
+                <input
+                    type="text"
+                    name="password"
+                    class="form-control admin-student-input"
+                    value="{{ student[3] }}"
+                    required>
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="admin-student-actions">
+
+                <button
+                    type="submit"
+                    class="admin-student-update">
+
+                    <i class="bi bi-check-circle"></i>
+
+                    Update Student
+
+                </button>
+
+
+                <a
+                    href="/manage_students"
+                    class="admin-student-cancel">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Cancel
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

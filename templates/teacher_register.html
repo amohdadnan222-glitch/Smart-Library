@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="auth-premium-page">
+
+    <div class="auth-premium-card auth-teacher-card register-layout">
+
+        <div class="auth-premium-visual">
+
+            <div class="auth-visual-overlay"></div>
+
+            <div class="auth-visual-content">
+
+                <div class="auth-visual-logo">
+                    <i class="bi bi-person-workspace"></i>
+                </div>
+
+                <span class="auth-visual-label">
+                    JOIN THE DIGITAL LIBRARY
+                </span>
+
+                <h1>
+                    Create Your<br>
+                    Teacher Account
+                </h1>
+
+                <p>
+                    Access library resources and manage
+                    your teaching-related book activities.
+                </p>
+
+                <div class="auth-visual-points">
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Fast account creation
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Library access
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Teacher dashboard
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="auth-premium-form">
+
+            <div class="auth-form-icon teacher-icon">
+                <i class="bi bi-person-plus"></i>
+            </div>
+
+            <div class="auth-form-label">
+                TEACHER REGISTRATION
+            </div>
+
+            <h2>
+                Create Account
+            </h2>
+
+            <p class="auth-form-subtitle">
+                Register your teacher account to get started.
+            </p>
+
+
+            <form method="POST">
+
+                <div class="auth-field">
+
+                    <label>
+                        <i class="bi bi-person"></i>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        <i class="bi bi-envelope"></i>
+                        Gmail Address
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="example@gmail.com"
+                        pattern="[A-Za-z0-9._%+-]+@gmail\.com"
+                        required>
+
+                    <small>
+                        Use a valid Gmail address ending with @gmail.com.
+                    </small>
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        <i class="bi bi-lock"></i>
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Minimum 6 characters"
+                        minlength="6"
+                        required>
+
+                    <small>
+                        Password must be at least 6 characters.
+                    </small>
+
+                </div>
+
+
+                <div class="auth-field">
+
+                    <label>
+                        <i class="bi bi-shield-lock"></i>
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        name="confirm_password"
+                        class="form-control"
+                        placeholder="Confirm your password"
+                        required>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-submit teacher-submit">
+
+                    <i class="bi bi-person-check"></i>
+
+                    Create Teacher Account
+
+                </button>
+
+            </form>
+
+
+            <div class="auth-divider">
+                <span>Already registered?</span>
+            </div>
+
+
+            <a
+                href="/teacher_login"
+                class="auth-register-button">
+
+                <i class="bi bi-box-arrow-in-right"></i>
+
+                Login Here
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

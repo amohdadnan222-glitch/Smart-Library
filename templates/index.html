@@ -1,0 +1,693 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="official-homepage">
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <header class="official-navbar">
+
+        <a href="/" class="official-brand">
+
+            <div class="official-brand-icon">
+                <i class="bi bi-book-half"></i>
+            </div>
+
+            <div class="official-brand-text">
+
+                <strong>LIBRARY</strong>
+
+                <span>MANAGEMENT SYSTEM</span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="official-nav-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#how-it-works">
+                How It Works
+            </a>
+
+            <a href="/student_login">
+                Student
+            </a>
+
+            <a href="/teacher_login">
+                Teacher
+            </a>
+
+            <a
+                href="/admin_login"
+                class="official-admin-btn">
+
+                <i class="bi bi-shield-lock"></i>
+
+                Admin Login
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO SECTION
+         ===================================================== -->
+
+    <section
+        class="official-hero"
+        id="home">
+
+        <div class="official-hero-overlay"></div>
+
+
+        <div class="official-hero-content">
+
+            <div class="official-hero-badge">
+
+                <i class="bi bi-mortarboard-fill"></i>
+
+                Digital Library Platform
+
+            </div>
+
+
+            <h1>
+
+                Smart Library Management
+                <span>for Modern Education</span>
+
+            </h1>
+
+
+            <p>
+
+                A secure and efficient platform for managing
+                books, students, teachers, issue and return
+                activities, and library records.
+
+            </p>
+
+
+            <div class="official-hero-buttons">
+
+                <a
+                    href="/student_login"
+                    class="official-hero-btn student-btn">
+
+                    <i class="bi bi-person"></i>
+
+                    Student Login
+
+                </a>
+
+
+                <a
+                    href="/teacher_login"
+                    class="official-hero-btn teacher-btn">
+
+                    <i class="bi bi-person-workspace"></i>
+
+                    Teacher Login
+
+                </a>
+
+
+                <a
+                    href="/admin_login"
+                    class="official-hero-btn admin-btn">
+
+                    <i class="bi bi-shield-lock"></i>
+
+                    Admin Login
+
+                </a>
+
+            </div>
+
+
+            <div class="official-hero-note">
+
+                <i class="bi bi-check-circle-fill"></i>
+
+                Simple • Secure • Efficient • Academic
+
+            </div>
+
+        </div>
+
+
+        <div class="official-hero-scroll">
+
+            <i class="bi bi-chevron-down"></i>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO / TRUST STRIP
+         ===================================================== -->
+
+    <section class="official-trust-strip">
+
+        <div class="official-trust-item">
+
+            <i class="bi bi-book"></i>
+
+            <div>
+
+                <strong>Digital Book Management</strong>
+
+                <span>
+                    Organize your complete library collection
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="official-trust-item">
+
+            <i class="bi bi-people"></i>
+
+            <div>
+
+                <strong>Multiple User Roles</strong>
+
+                <span>
+                    Student, Teacher and Admin access
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="official-trust-item">
+
+            <i class="bi bi-graph-up-arrow"></i>
+
+            <div>
+
+                <strong>Smart Analytics</strong>
+
+                <span>
+                    Monitor library activity and reports
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FEATURES
+         ===================================================== -->
+
+    <section
+        class="official-features-section"
+        id="features">
+
+        <div class="official-section-heading">
+
+            <span>WHAT WE PROVIDE</span>
+
+            <h2>
+                Everything Your Library Needs
+            </h2>
+
+            <p>
+                A centralized system designed to simplify
+                everyday library operations.
+            </p>
+
+        </div>
+
+
+        <div class="official-feature-grid">
+
+
+            <!-- Feature 1 -->
+
+            <div class="official-feature-card">
+
+                <div class="official-feature-image book-image">
+
+                    <div class="official-feature-image-overlay">
+
+                        <i class="bi bi-book"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="official-feature-content">
+
+                    <h3>
+                        Book Management
+                    </h3>
+
+                    <p>
+                        Add, update, search and manage books
+                        with complete availability information.
+                    </p>
+
+                    <span class="official-feature-link">
+
+                        Organized Collection
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Feature 2 -->
+
+            <div class="official-feature-card">
+
+                <div class="official-feature-image search-image">
+
+                    <div class="official-feature-image-overlay">
+
+                        <i class="bi bi-search"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="official-feature-content">
+
+                    <h3>
+                        Fast Book Search
+                    </h3>
+
+                    <p>
+                        Quickly find books using title,
+                        author or category information.
+                    </p>
+
+                    <span class="official-feature-link">
+
+                        Easy Discovery
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Feature 3 -->
+
+            <div class="official-feature-card">
+
+                <div class="official-feature-image circulation-image">
+
+                    <div class="official-feature-image-overlay">
+
+                        <i class="bi bi-arrow-repeat"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="official-feature-content">
+
+                    <h3>
+                        Issue & Return
+                    </h3>
+
+                    <p>
+                        Track book circulation, due dates,
+                        returns and fines efficiently.
+                    </p>
+
+                    <span class="official-feature-link">
+
+                        Complete Tracking
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Feature 4 -->
+
+            <div class="official-feature-card">
+
+                <div class="official-feature-image reports-image">
+
+                    <div class="official-feature-image-overlay">
+
+                        <i class="bi bi-bar-chart"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="official-feature-content">
+
+                    <h3>
+                        Reports & Analytics
+                    </h3>
+
+                    <p>
+                        Access useful statistics and reports
+                        for better library administration.
+                    </p>
+
+                    <span class="official-feature-link">
+
+                        Data Driven
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HOW IT WORKS
+         ===================================================== -->
+
+    <section
+        class="official-how-section"
+        id="how-it-works">
+
+        <div class="official-section-heading light-heading">
+
+            <span>HOW IT WORKS</span>
+
+            <h2>
+                Simple. Fast. Organized.
+            </h2>
+
+            <p>
+                Manage library activities through a simple
+                four-step workflow.
+            </p>
+
+        </div>
+
+
+        <div class="official-steps">
+
+
+            <div class="official-step">
+
+                <div class="official-step-number">
+                    01
+                </div>
+
+                <div class="official-step-icon">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                </div>
+
+                <h3>
+                    Login
+                </h3>
+
+                <p>
+                    Select your role and securely access
+                    your dashboard.
+                </p>
+
+            </div>
+
+
+            <div class="official-step-line"></div>
+
+
+            <div class="official-step">
+
+                <div class="official-step-number">
+                    02
+                </div>
+
+                <div class="official-step-icon">
+                    <i class="bi bi-search"></i>
+                </div>
+
+                <h3>
+                    Find a Book
+                </h3>
+
+                <p>
+                    Search books by title, author or category.
+                </p>
+
+            </div>
+
+
+            <div class="official-step-line"></div>
+
+
+            <div class="official-step">
+
+                <div class="official-step-number">
+                    03
+                </div>
+
+                <div class="official-step-icon">
+                    <i class="bi bi-journal-plus"></i>
+                </div>
+
+                <h3>
+                    Issue
+                </h3>
+
+                <p>
+                    Issue the selected book and track its due date.
+                </p>
+
+            </div>
+
+
+            <div class="official-step-line"></div>
+
+
+            <div class="official-step">
+
+                <div class="official-step-number">
+                    04
+                </div>
+
+                <div class="official-step-icon">
+                    <i class="bi bi-arrow-return-left"></i>
+                </div>
+
+                <h3>
+                    Return
+                </h3>
+
+                <p>
+                    Return books and keep circulation records updated.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="official-cta-section">
+
+        <div class="official-cta-content">
+
+            <div class="official-cta-icon">
+
+                <i class="bi bi-buildings"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    MODERN DIGITAL LIBRARY
+                </span>
+
+                <h2>
+                    Ready to manage your library smarter?
+                </h2>
+
+                <p>
+                    Choose your account type and get started.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="official-cta-buttons">
+
+            <a
+                href="/student_login"
+                class="official-cta-btn">
+
+                Student Login
+
+            </a>
+
+
+            <a
+                href="/teacher_login"
+                class="official-cta-btn">
+
+                Teacher Login
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="official-footer">
+
+        <div class="official-footer-main">
+
+
+            <div class="official-footer-brand">
+
+                <div class="official-brand footer-brand">
+
+                    <div class="official-brand-icon">
+
+                        <i class="bi bi-book-half"></i>
+
+                    </div>
+
+                    <div class="official-brand-text">
+
+                        <strong>LIBRARY</strong>
+
+                        <span>
+                            MANAGEMENT SYSTEM
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    A digital library solution designed
+                    to simplify academic library management.
+                </p>
+
+            </div>
+
+
+            <div class="official-footer-column">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#features">
+                    Features
+                </a>
+
+                <a href="#how-it-works">
+                    How It Works
+                </a>
+
+            </div>
+
+
+            <div class="official-footer-column">
+
+                <h4>
+                    Login
+                </h4>
+
+                <a href="/student_login">
+                    Student Login
+                </a>
+
+                <a href="/teacher_login">
+                    Teacher Login
+                </a>
+
+                <a href="/admin_login">
+                    Admin Login
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="official-footer-bottom">
+
+            <span>
+                © 2026 Library Management System.
+                All rights reserved.
+            </span>
+
+            <span>
+                Designed for Academic Institutions
+            </span>
+
+        </div>
+
+    </footer>
+
+</div>
+
+{% endblock %}
