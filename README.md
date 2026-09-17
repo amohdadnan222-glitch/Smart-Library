@@ -130,6 +130,80 @@ Database operations are separated into dedicated Python modules to keep the appl
 
 ---
 
+---
+
+## 🖥️ Application Screenshots
+
+### 🏠 Home Page
+
+The home page provides the main entry point to the Smart Library Management System.
+
+![Home Page](Home-page.png)
+
+---
+
+### 🔐 User Login
+
+The login page allows registered users to securely access the application.
+
+![User Login](User-login.png)
+
+---
+
+### 📝 User Registration
+
+New users can create an account through the registration page.
+
+![User Registration](User-registration.png)
+
+---
+
+### 📚 Book Catalogue
+
+The book catalogue displays available books and provides access to library book information.
+
+![Book Catalogue](Book-Catalogue.png)
+
+---
+
+## 🔄 Application Workflow
+
+```text
+                ┌──────────────────┐
+                │    Home Page     │
+                └────────┬─────────┘
+                         │
+                ┌────────▼─────────┐
+                │ Login / Register │
+                └────────┬─────────┘
+                         │
+                         ▼
+                ┌──────────────────┐
+                │ Authentication   │
+                └────────┬─────────┘
+                         │
+                         ▼
+                ┌──────────────────┐
+                │    Dashboard     │
+                └────────┬─────────┘
+                         │
+              ┌──────────┼──────────┐
+              │          │          │
+              ▼          ▼          ▼
+          ┌───────┐  ┌───────┐  ┌──────────┐
+          │ Books │  │ Search│  │ Issue /  │
+          │       │  │       │  │ Return   │
+          └───────┘  └───────┘  └──────────┘
+                         │
+                         ▼
+                ┌──────────────────┐
+                │ SQLite Database  │
+                └──────────────────┘
+
+---
+
+
+
 ## 🏗️ Application Architecture
 
 The application follows a simple Flask-based web architecture.
