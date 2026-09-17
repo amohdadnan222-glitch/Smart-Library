@@ -1,67 +1,116 @@
 # 📚 Smart Library Management System
 
-A web-based **Library Management System** built with **Python, Flask, SQLite, HTML, CSS, and Bootstrap**.
-
-The system provides role-based access for **Students, Teachers, and Administrators** and helps manage books, borrowing, returns, searching, user profiles, and library records through a centralized web application.
+A Flask-based web application for managing library operations with **role-based access, book management, user authentication, issue/return tracking, search functionality, dashboards, and SQLite database integration**.
 
 ---
 
-## 🚀 Project Overview
+## 📌 Project Overview
 
-Smart Library is designed to simplify common library operations through a web-based platform.
+The **Smart Library Management System** is a web-based application developed using Python and Flask to simplify common library management activities.
 
-Instead of managing library records manually, the system provides dedicated functionality for different users and keeps important library information organized in a SQLite database.
+The system provides separate functionality for users and administrators, allowing books and users to be managed efficiently through a centralized web interface.
 
-### 👥 User Roles
+The project demonstrates practical implementation of:
 
-- **Student**
-  - View available books
-  - Search for books
-  - View issued books
-  - Track borrowing information
-  - Manage profile information
-
-- **Teacher**
-  - Search and view books
-  - Issue books
-  - View issued books
-  - Process book returns
-  - Manage profile information
-
-- **Administrator**
-  - Manage the library system
-  - Access administrative functions
-  - Manage records and system information
+- User authentication
+- Role-based access control
+- Book catalogue management
+- Book issue and return tracking
+- Search functionality
+- Dashboard-based management
+- SQLite database integration
+- Responsive web interface
 
 ---
 
-## ✨ Key Features
+## ✨ Features
 
-### 🔐 Authentication & Role-Based Access
-Separate authentication and access flows are provided for students, teachers, and administrators.
+### 🔐 User Authentication
 
-### 📖 Book Management
-The system maintains book records and tracks important information such as availability.
+The system provides secure user authentication functionality.
+
+Users can:
+
+- Register a new account
+- Log in using their credentials
+- Access features according to their assigned role
+- Log out securely
+
+Passwords are stored using password hashing rather than plain-text storage.
+
+---
+
+### 👥 Role-Based Access
+
+The application supports different levels of access for users.
+
+The role-based system allows administrators to perform management operations while regular users can access the functionality available to them.
+
+This helps prevent unauthorized access to administrative features.
+
+---
+
+### 📚 Book Catalogue
+
+The book catalogue allows users to view available books in the library.
+
+The system maintains information such as:
+
+- Book title
+- Author
+- Category
+- Availability
+- Other relevant book information
+
+Users can search the catalogue to find books more easily.
+
+---
+
+### 📖 Book Issue & Return
+
+The system supports tracking of library books.
+
+Library operations include:
+
+- Issuing books
+- Recording issued books
+- Returning books
+- Tracking book availability
+- Maintaining issue/return records
+
+This reduces the need for manual record keeping.
+
+---
 
 ### 🔎 Book Search
-Books can be searched using information such as:
 
-- Title
-- Author
-- ISBN
-- Category
+A search functionality is provided to help users quickly find books from the catalogue.
 
-### 📤 Issue & Return Management
-The system records book issuing and returning operations and updates book availability accordingly.
+Books can be searched based on available book information such as title, author, or other relevant fields.
 
-### 📊 Library Records
-Borrowing information is stored in the SQLite database, including issue dates, return dates, status, and fines.
+---
 
-### 👤 Profile Management
-Users can access and update their profile information.
+### 📊 Dashboard
 
-### 🎨 Responsive Web Interface
-The frontend uses HTML, CSS, and Bootstrap to provide a clean web interface.
+The application provides dashboard functionality for managing and viewing library information.
+
+The dashboard can provide an overview of important library records and activities.
+
+---
+
+### 🗄️ SQLite Database
+
+The application uses **SQLite** for local database management.
+
+The database stores information related to:
+
+- Users
+- Books
+- Library transactions
+- Issue and return records
+- Other application data
+
+Database operations are separated into dedicated Python modules to keep the application organized.
 
 ---
 
@@ -69,30 +118,42 @@ The frontend uses HTML, CSS, and Bootstrap to provide a clean web interface.
 
 | Technology | Purpose |
 |------------|---------|
-| Python | Application logic |
-| Flask | Web framework |
-| SQLite | Database |
-| HTML | Page structure |
-| CSS | Styling |
-| Bootstrap | Responsive UI |
-| Jinja2 | Dynamic HTML templates |
+| **Python** | Backend application development |
+| **Flask** | Web application framework |
+| **SQLite** | Database management |
+| **HTML** | Web page structure |
+| **CSS** | User interface styling |
+| **Bootstrap** | Responsive UI components |
+| **Jinja2** | Dynamic HTML templates |
+| **Werkzeug** | Password hashing and security |
+| **Gunicorn** | Production WSGI server |
 
 ---
 
-## 🏗️ Project Structure
+## 🏗️ Application Architecture
+
+The application follows a simple Flask-based web architecture.
 
 ```text
-Smart-Library/
-│
-├── static/
-│   └── css/
-│
-├── templates/
-│
-├── app.py
-├── database.py
-├── update_database.py
-├── hash_admin_password.py
-├── requirements.txt
-├── .gitignore
-└── README.md
+                    ┌─────────────────────┐
+                    │      Web Browser    │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │     Flask App       │
+                    │       app.py        │
+                    └──────────┬──────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              │                │                │
+              ▼                ▼                ▼
+       ┌─────────────┐  ┌─────────────┐  ┌─────────────┐
+       │ Authentication│ │ Book Module │ │ Dashboard   │
+       └─────────────┘  └─────────────┘  └─────────────┘
+              │                │                │
+              └────────────────┼────────────────┘
+                               ▼
+                    ┌─────────────────────┐
+                    │   SQLite Database   │
+                    └─────────────────────┘
